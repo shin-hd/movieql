@@ -1,11 +1,26 @@
-type Person {
+type Movie {
+  adult: Boolean
+  backdrop_path: String
+  genre_ids: [Int]
   id: Int!
-  name: String!
-  age: Int!
-  gender: String!
+  original_language: String
+  original_title: String!
+  overview: String
+  popularity: Float
+  poster_path: String
+  release_date: String
+  title: String
+  video: Boolean
+  vote_average: Float
+  vote_count: Int
 }
 
 type Query {
-  people: [Person]!
-  person(id: Int!): Person
+  movies: [Movie]!
+  movie(id: Int!): Movie
+}
+
+type Mutation {
+  addMovie(id: Int!, original_title: String!, score: Int!): Movie!
+  deleteMovie(id: Int!): Boolean!
 }
